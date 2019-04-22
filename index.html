@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Chess</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        touch-action: manipulation;
+      }
+
+      body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        justify-content: center;
+        justify-items: center;
+      }
+
+      button {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 32px;
+        padding: 0;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .board {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .piece {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+
+        color: black;
+        cursor: default;
+        font-size: 24px;
+        line-height: 1;
+        text-align: center;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        width: 100%;
+      }
+
+      .piece--white {
+        color: white;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .square {
+        align-items: center;
+        background-color: lightgrey;
+        display: flex;
+        height: 32px;
+        justify-items: center;
+        position: relative;
+        width: 32px;
+      }
+
+      .square--dark {
+        background-color: darkgrey;
+      }
+
+      .square--possibleMove::after {
+        background-color: green;
+        content: " ";
+        height: 100%;
+        left: 0;
+        opacity: 0.33;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .square--selected::after {
+        background-color: yellow;
+        content: " ";
+        height: 100%;
+        left: 0;
+        opacity: 0.33;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      /* TODO: Get rid of this. */
+      .yay {
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        font-size: 96px;
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg) scale(0.5);
+        }
+        50% {
+          -webkit-transform: rotate(180deg) scale(1.5);
+        }
+        100% {
+          -webkit-transform: rotate(360deg) scale(0.5);
+        }
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg) scale(0.5);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.5);
+        }
+        100% {
+          transform: rotate(360deg) scale(0.5);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- TODO: Delete this nonsense. -->
+    <p style="margin:0;">You are the white queen.</p>
+    <p style="margin-top: 8px;">The pawns are frozen. Get them!</p>
+
+    <div id="root"></div>
+
+    <script src="chess.js"></script>
+  </body>
+</html>
